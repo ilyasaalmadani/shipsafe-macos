@@ -1,0 +1,12 @@
+name: Feature or new check
+description: A check, stack or workflow you want SHIPSAFE to support
+labels: [enhancement]
+body:
+  - type: textarea
+    attributes:
+      label: What should SHIPSAFE catch or do?
+    validations:
+      required: true
+  - type: textarea
+    attributes:
+      label: Why does it matter before a release?

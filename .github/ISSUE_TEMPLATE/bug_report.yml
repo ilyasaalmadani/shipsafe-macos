@@ -1,0 +1,18 @@
+name: Bug or false positive
+description: Something wrong in a scan or in the app
+labels: [bug]
+body:
+  - type: textarea
+    attributes:
+      label: What happened?
+      description: Rule ID (e.g. SS-SECRETS-001), what you expected, what you saw. Never paste real secrets.
+    validations:
+      required: true
+  - type: input
+    attributes:
+      label: SHIPSAFE and macOS version
+      placeholder: SHIPSAFE 1.1.0, macOS 15.x
+  - type: input
+    attributes:
+      label: Project stack
+      placeholder: SwiftUI app + Node/Express backend
