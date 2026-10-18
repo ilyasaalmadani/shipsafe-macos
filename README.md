@@ -8,7 +8,7 @@
 
 A native Mac app for iOS, Mac and backend developers. Point it at a project folder and get a release-readiness score in seconds, with the file, the line and the fix for every finding. **Your code never leaves your Mac.**
 
-[![Download on the Mac App Store](https://img.shields.io/badge/Mac_App_Store-Download-0D96F6?style=for-the-badge&logo=apple&logoColor=white)](https://apps.apple.com/us/app/shipsafe-release-readiness/id6808833747?mt=12)
+[![Download on the Mac App Store](https://img.shields.io/badge/Mac_App_Store-Download-0D96F6?style=for-the-badge&logo=apple&logoColor=white)](https://apps.apple.com/app/id6808833747?mt=12)
 
 **$9.99 once.** No subscription. No account. No upload. No AI calls.
 
@@ -16,6 +16,7 @@ A native Mac app for iOS, Mac and backend developers. Point it at a project fold
 ![Apple silicon](https://img.shields.io/badge/Apple_silicon-native-black)
 ![148 checks](https://img.shields.io/badge/release_checks-148-6E56CF)
 ![Runs offline](https://img.shields.io/badge/runs-100%25_local-2EA44F)
+![Version 1.1.1](https://img.shields.io/badge/version-1.1.1_iOS_Pack-0D96F6)
 
 <img src="media/shipsafe-demo.gif" width="300" alt="SHIPSAFE 30-second demo: a Stripe live key is caught before git push">
 
@@ -24,6 +25,20 @@ A native Mac app for iOS, Mac and backend developers. Point it at a project fold
 </div>
 
 ---
+
+## New in 1.1.1: iOS Pack for Swift and Xcode projects
+
+SHIPSAFE now detects Xcode projects and checks the release risks that only iOS and Mac apps have:
+
+- **App Transport Security** exceptions (`NSAllowsArbitraryLoads`) and cleartext `http://` URLs
+- **Credentials printed** with `print`, `NSLog` or `os_log`
+- **`get-task-allow`** and a development `aps-environment` left in release files
+- **Signing keys** (`.p8`, `.p12`) and provisioning profiles committed to the repository
+- **Secrets in `.xcconfig`** and a note for `GoogleService-Info.plist`
+
+Plus a fully native macOS interface: source-list sidebar, score ring, severity tiles, light and dark mode.
+
+![Built for Swift, web and backend code](media/store/shipsafe-03-swift-web-backend.jpg)
 
 ## Friday, 5:58 PM
 
@@ -83,12 +98,22 @@ Then reveal it in Finder, open it in your editor, or copy it as Markdown into an
 
 | | |
 |---|---|
+| ![Don't ship your secrets](media/store/shipsafe-01-scan-overview.jpg) | ![Every finding, with proof and a fix](media/store/shipsafe-02-evidence-and-fix.jpg) |
+| ![100% on your Mac](media/store/shipsafe-04-private-on-your-mac.jpg) | ![One price, no subscription](media/store/shipsafe-05-one-price-report.jpg) |
+
+<details>
+<summary>More screenshots</summary>
+
+| | |
+|---|---|
 | ![Overview](media/screenshots/1-overview.jpg) | ![Release readiness score](media/screenshots/2-score.jpg) |
 | **Pick a folder, or try the bundled sample** | **Release readiness score and severity breakdown** |
 | ![Findings](media/screenshots/3-findings.jpg) | ![Attack surface](media/screenshots/4-attack-surface.jpg) |
 | **Every finding with evidence and a fix** | **Attack-surface map of your routes** |
 | ![Scan history](media/screenshots/5-history.jpg) | ![Report](media/screenshots/6-report.jpg) |
 | **Readiness trend across scans** | **Shareable PDF / HTML report** |
+
+</details>
 
 ## How it compares
 
@@ -103,7 +128,7 @@ Then reveal it in Finder, open it in your editor, or copy it as Markdown into an
 
 ## Try it in under a minute
 
-1. [Get SHIPSAFE on the Mac App Store](https://apps.apple.com/us/app/shipsafe-release-readiness/id6808833747?mt=12).
+1. [Get SHIPSAFE on the Mac App Store](https://apps.apple.com/app/id6808833747?mt=12).
 2. Click **Try the Sample Project**. It's a small Node.js service with planted issues and fake secrets.
 3. Read the findings, then point SHIPSAFE at your own project.
 
@@ -126,8 +151,8 @@ No. Scans run entirely on your Mac inside a sandboxed engine. There's no account
 **What languages and stacks does it understand?**
 Secret detection runs on every text file, including Swift, plist, xcconfig, JSON and YAML. Leftover-code checks cover Swift, Kotlin, Java, JavaScript/TypeScript, Python, PHP, Ruby, Go, Rust and web files. Route, dependency and database checks go deepest on JavaScript/TypeScript backends such as Node.js and Express.
 
-**Does it check my Xcode project against App Review guidelines?**
-Not today. SHIPSAFE focuses on secrets, leftovers, backend routes, dependencies and migrations. Tell us which Apple-specific checks you want in [issues](https://github.com/ilyasaalmadani/shipsafe-macos/issues/new/choose).
+**Does it check my Xcode project?**
+Yes, since 1.1.1. The iOS Pack flags ATS exceptions, cleartext URLs, credentials in `print`/`NSLog`/`os_log`, `get-task-allow`, development push entitlements and committed signing keys. It does not check App Review guidelines and can't promise an approval. Tell us which Apple-specific checks you want next in [issues](https://github.com/ilyasaalmadani/shipsafe-macos/issues/new/choose).
 
 **Does it guarantee a secure app?**
 No tool can. SHIPSAFE is a release-review assistant. Automated findings can include false positives or miss context. Review the evidence and make the final call yourself.
@@ -148,7 +173,7 @@ Support by email: [support@jijilabsdigital.com](mailto:support@jijilabsdigital.c
 
 ## Links
 
-- Mac App Store: https://apps.apple.com/us/app/shipsafe-release-readiness/id6808833747?mt=12
+- Mac App Store: https://apps.apple.com/app/id6808833747?mt=12
 - Website: https://jijilabsdigital.com/#shipsafe
 - Privacy policy: https://shipsafe.lagirame.id/privacy
 
